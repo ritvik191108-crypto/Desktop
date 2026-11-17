@@ -1,0 +1,955 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kobwebit.com</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: linear-gradient(
+                45deg,
+                #050a19,
+                #0b1f3a,
+                #101b4d,
+                #050a19
+            );
+
+            background-size: 400% 400%;
+            animation: backgroundMove 3s ease infinite;
+
+            overflow-x: hidden;
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
+        /* HEADER */
+
+        .header {
+            width: 100%;
+            min-height: 100px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 15px 35px;
+
+            background: rgba(3, 8, 25, 0.95);
+
+            border-bottom: 1px solid rgba(0, 170, 255, 0.35);
+
+            box-shadow: 0 5px 25px rgba(0, 100, 255, 0.15);
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .brand-name {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand-name span {
+            color: #00bfff;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: #00bfff;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn {
+            padding: 12px 22px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+
+        /* HERO */
+
+        .hero {
+            width: 100%;
+            text-align: center;
+            padding: 50px 25px 25px;
+        }
+
+        .hero h1 {
+            color: white;
+
+            font-family:
+                'Franklin Gothic Medium',
+                'Arial Narrow',
+                Arial,
+                sans-serif;
+
+            margin: 0;
+            font-size: 4em;
+        }
+
+        .hero h3 {
+            color: white;
+
+            font-family:
+                'Franklin Gothic Medium',
+                'Arial Narrow',
+                Arial,
+                sans-serif;
+
+            margin-top: 18px;
+            font-size: 20px;
+        }
+
+
+        /* MAIN BUTTON */
+
+        .main-button {
+            width: 90%;
+            max-width: 1200px;
+            min-height: 120px;
+
+            background-color: blue;
+            color: white;
+
+            border: none;
+            border-radius: 12px;
+
+            font-size: 20px;
+            cursor: pointer;
+            padding: 20px 40px;
+            font-family: Arial;
+            font-weight: bold;
+
+            display: block;
+            margin: 25px auto;
+
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: darkblue;
+            transform: scale(1.02);
+        }
+
+
+        /* SERVICES */
+
+        .services-wrapper {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 35px;
+            padding: 25px 0 55px;
+        }
+
+        .services-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: servicesLoop 35s linear infinite;
+        }
+
+        .service-card {
+            width: calc((100vw - 100px) / 4);
+            min-width: 300px;
+            min-height: 500px;
+
+            flex-shrink: 0;
+            padding: 20px;
+
+            border-radius: 20px;
+
+            background: rgba(5, 10, 30, 0.92);
+
+            border: 1px solid rgba(0, 140, 255, 0.55);
+
+            box-shadow:
+                0 0 20px rgba(0, 100, 255, 0.20);
+
+            backdrop-filter: blur(10px);
+
+            color: white;
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #00bfff;
+
+            box-shadow:
+                0 0 35px rgba(0, 180, 255, 0.45);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 190px;
+
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            margin-bottom: 20px;
+
+            border: 1px solid rgba(0, 170, 255, 0.4);
+        }
+
+        .service-card h2 {
+            color: white;
+            font-size: 22px;
+            line-height: 1.3;
+            margin: 0 0 15px;
+        }
+
+        .service-card p {
+            color: #d9e8ff;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0 0 15px;
+        }
+
+        .service-card b {
+            color: #00bfff;
+        }
+
+
+        /* LOOP */
+
+        @keyframes servicesLoop {
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .services-wrapper:hover .services-track {
+            animation-play-state: paused;
+        }
+
+
+        /* CONTACT */
+
+        .contact-section {
+            width: 94%;
+            max-width: 1500px;
+
+            margin: 25px auto 70px;
+            padding: 45px 30px;
+
+            background: rgba(5, 10, 30, 0.92);
+
+            border: 1px solid rgba(0, 140, 255, 0.55);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 0 30px rgba(0, 100, 255, 0.20);
+
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-top: 0;
+            color: #00bfff;
+        }
+
+        .contact-section p {
+            color: #d9e8ff;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-card {
+            width: 90px;
+            height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px;
+
+            background: rgba(0, 30, 70, 0.7);
+
+            border: 1px solid rgba(0, 170, 255, 0.35);
+
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-7px) scale(1.08);
+
+            border-color: #00bfff;
+
+            box-shadow:
+                0 0 25px rgba(0, 180, 255, 0.35);
+        }
+
+        .contact-card a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-card img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+
+            background: rgba(3, 8, 25, 0.95);
+
+            border-top: 1px solid rgba(0, 170, 255, 0.25);
+
+            color: #b9d9ff;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1100px) {
+            .service-card {
+                width: 420px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .header-left {
+                justify-content: center;
+            }
+
+            .nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav a {
+                font-size: 14px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .hero {
+                padding-top: 35px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero h3 {
+                font-size: 16px;
+            }
+
+            .main-button {
+                width: 90%;
+                min-height: 110px;
+                font-size: 16px;
+            }
+
+            .service-card {
+                width: 300px;
+                min-height: 500px;
+            }
+
+            .service-image {
+                height: 160px;
+            }
+
+            .contact-section {
+                padding: 30px 15px;
+            }
+
+            .contact-grid {
+                gap: 15px;
+            }
+
+            .contact-card {
+                width: 75px;
+                height: 75px;
+            }
+
+            .contact-card img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="header-left">
+
+            <img
+                src="/image/logo.png"
+                class="logo"
+                alt="KOBWEBIT Logo"
+            >
+
+            <div class="brand-name">
+                KOB<span>WEBIT</span>
+            </div>
+
+        </div>
+
+        <nav class="nav">
+
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#">About Us</a>
+            <a href="#contact">Contact</a>
+
+            <button
+                class="contact-btn"
+                onclick="document.getElementById('contact').scrollIntoView()"
+            >
+                Contact Us
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            Innovate. Develop. Test. Deliver
+        </h1>
+
+        <h3>
+            We deliver eminence alloyed with ace business solutions!!
+        </h3>
+
+    </section>
+
+
+    <!-- MAIN BUTTON -->
+
+    <button class="main-button">
+
+        Looking for a leading provider of software consulting service?
+
+    </button>
+
+
+    <!-- SERVICES -->
+
+    <div class="services-wrapper" id="services">
+
+        <div class="services-track">
+
+
+            <!-- SERVICE 1 -->
+
+            <div class="service-card">
+
+                <img
+                    class="service-image"
+                    src="/image/selenium.png"
+                    alt="Selenium Test Automation"
+                >
+
+                <h2>
+                    Selenium Test Automation Framework Development
+                </h2>
+
+                <p>
+                    At <b>KOBWEBIT</b>, we leverage the power of
+                    <b>Selenium WebDriver, Appium, and AI-driven automation</b>
+                    to reduce testing efforts, improve accuracy, and ensure
+                    faster time-to-market.
+                </p>
+
+                <p>
+                    Whether you’re a startup or an enterprise, our
+                    <b>tailor-made automation solutions</b> empower you
+                    to deliver flawless applications with confidence.
+                </p>
+
+            </div>
+
+
+            <!-- SERVICE 2 -->
+
+            <div class="service-card">
+
+                <img
+                    class="service-image"
+                    src="/image/deve.png"
+                    alt="Application Development"
+                >
+
+                <h2>Application Development</h2>
+
+                <p>
+                    Our <b>Application Development Services</b> provide
+                    end-to-end solutions for building
+                    <b>scalable, secure, and high-performance</b>
+                    applications tailored to your business needs.
+                </p>
+
+                <p>
+                    We specialize in <b>custom software, mobile apps,
+                    web applications, and enterprise solutions</b>,
+                    leveraging the latest technologies to drive innovation.
+                </p>
+
+                <p>
+                    From <b>UI/UX design</b> to development, testing,
+                    and deployment, we ensure seamless functionality
+                    and a user-friendly experience.
+                </p>
+
+            </div>
+
+
+            <!-- SERVICE 3 -->
+
+            <div class="service-card">
+
+                <img
+                    class="service-image"
+                    src="/image/database.png"
+                    alt="Database Management"
+                >
+
+                <h2>Database Management</h2>
+
+                <p>
+                    Our <b>Database Management Services</b> ensure secure,
+                    scalable, and high-performance data solutions for
+                    businesses.
+                </p>
+
+                <p>
+                    We specialize in <b>database design, optimization,
+                    maintenance, backup, and recovery</b>, ensuring
+                    seamless data access and integrity.
+                </p>
+
+                <p>
+                    Whether on <b>cloud, on-premises, or hybrid environments</b>,
+                    we provide real-time monitoring, performance tuning,
+                    and security enhancements to keep your data reliable
+                    and efficient.
+                </p>
+
+            </div>
+
+
+            <!-- SERVICE 4 -->
+
+            <div class="service-card">
+
+                <img
+                    class="service-image"
+                    src="/image/qa.png"
+                    alt="Quality Assurance and Testing"
+                >
+
+                <h2>Quality Assurance & Testing</h2>
+
+                <p>
+                    Our <b>Quality Assurance & Testing Services</b> ensure
+                    that your software is <b>bug-free, reliable, and
+                    high-performing</b> before deployment.
+                </p>
+
+                <p>
+                    We provide <b>manual and automated testing</b>,
+                    covering functional, performance, security, and
+                    usability testing to enhance product quality.
+                </p>
+
+                <p>
+                    With industry-best practices and cutting-edge tools,
+                    we identify defects early, improve efficiency, and
+                    guarantee a seamless user experience.
+                </p>
+
+            </div>
+
+
+            <!-- SERVICE 5 -->
+
+            <div class="service-card">
+
+                <img
+                    class="service-image"
+                    src="/image/security.png"
+                    alt="Software Security"
+                >
+
+                <h2>
+                    Software Security Services & Solutions
+                </h2>
+
+                <p>
+                    Our <b>Software Security Services & Solutions</b>
+                    protect your applications from
+                    <b>cyber threats, vulnerabilities, and data breaches</b>.
+                </p>
+
+                <p>
+                    We offer <b>penetration testing, code security analysis,
+                    threat detection, encryption, and compliance auditing</b>
+                    to safeguard your software at every level.
+                </p>
+
+                <p>
+                    With advanced security frameworks and proactive risk
+                    management, we ensure your systems remain
+                    <b>secure, resilient, and compliant</b> with industry
+                    standards.
+                </p>
+
+            </div>
+
+
+            <!-- DUPLICATE CARDS FOR CONTINUOUS LOOP -->
+
+            <div class="service-card">
+
+                <img class="service-image"
+                     src="/image/selenium.png"
+                     alt="Selenium Test Automation">
+
+                <h2>Selenium Test Automation Framework Development</h2>
+
+                <p>
+                    At <b>KOBWEBIT</b>, we leverage the power of
+                    <b>Selenium WebDriver, Appium, and AI-driven automation</b>
+                    to reduce testing efforts, improve accuracy, and ensure
+                    faster time-to-market.
+                </p>
+
+                <p>
+                    Whether you’re a startup or an enterprise, our
+                    <b>tailor-made automation solutions</b> empower you
+                    to deliver flawless applications with confidence.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img class="service-image"
+                     src="/image/deve.png"
+                     alt="Application Development">
+
+                <h2>Application Development</h2>
+
+                <p>
+                    Our <b>Application Development Services</b> provide
+                    end-to-end solutions for building
+                    <b>scalable, secure, and high-performance</b>
+                    applications tailored to your business needs.
+                </p>
+
+                <p>
+                    We specialize in <b>custom software, mobile apps,
+                    web applications, and enterprise solutions</b>.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img class="service-image"
+                     src="/image/database.png"
+                     alt="Database Management">
+
+                <h2>Database Management</h2>
+
+                <p>
+                    Our <b>Database Management Services</b> ensure secure,
+                    scalable, and high-performance data solutions for
+                    businesses.
+                </p>
+
+                <p>
+                    We specialize in <b>database design, optimization,
+                    maintenance, backup, and recovery</b>.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img class="service-image"
+                     src="/image/qa.png"
+                     alt="Quality Assurance">
+
+                <h2>Quality Assurance & Testing</h2>
+
+                <p>
+                    Our <b>Quality Assurance & Testing Services</b> ensure
+                    that your software is <b>bug-free, reliable, and
+                    high-performing</b>.
+                </p>
+
+                <p>
+                    We provide <b>manual and automated testing</b>,
+                    covering functional, performance, security,
+                    and usability testing.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img class="service-image"
+                     src="/image/security.png"
+                     alt="Software Security">
+
+                <h2>Software Security Services & Solutions</h2>
+
+                <p>
+                    Our <b>Software Security Services & Solutions</b>
+                    protect your applications from
+                    <b>cyber threats, vulnerabilities, and data breaches</b>.
+                </p>
+
+                <p>
+                    We offer <b>penetration testing, code security analysis,
+                    threat detection, encryption, and compliance auditing</b>.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <h2>Contact KOBWEBIT</h2>
+
+        <p>
+            Get in touch with us through our contact and social platforms.
+        </p>
+
+        <div class="contact-grid">
+
+            <!-- GMAIL -->
+
+            <div class="contact-card">
+
+                <a href="mailto:ritvik.26bcs10723@sst.scaler.com">
+
+                    <img
+                        src="https://cdn.simpleicons.org/gmail/ffffff"
+                        alt="Email"
+                    >
+
+                </a>
+
+            </div>
+
+
+            <!-- GITHUB -->
+
+            <div class="contact-card">
+
+                <a
+                    href="https://github.com/ritvik191108-crypto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <img
+                        src="https://cdn.simpleicons.org/github/ffffff"
+                        alt="GitHub"
+                    >
+
+                </a>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="contact-card">
+
+                <a
+                    href="https://www.instagram.com/rivjr_11/?hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <img
+                        src="https://cdn.simpleicons.org/instagram/ffffff"
+                        alt="Instagram"
+                    >
+
+                </a>
+
+            </div>
+
+
+            <!-- CODECHEF -->
+
+            <div class="contact-card">
+
+                <a
+                    href="https://www.codechef.com/users/chunk_ref_45"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <img
+                        src="https://cdn.simpleicons.org/codechef/ffffff"
+                        alt="CodeChef"
+                    >
+
+                </a>
+
+            </div>
+
+            <div class="contact-card">
+
+                <a
+                    href="https://x.com/RitvikKaus58380"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <img
+                        src="https://cdn.simpleicons.org/x/ffffff"
+                        alt="X"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; made by Ritvik Raj.
+    </footer>
+
+</body>
+</html>
